@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class Main {
 
@@ -6,19 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C://test.txt"));
-            String inValue;
-            try {
+            List<String> lines = Files.readAllLines(Paths.get("C:\\test.txt"));
 
-                while((inValue = br.readLine()) != null) {
-                    System.out.println(inValue);
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
+            for(String line:lines) {
+                System.out.println(line);
             }
-        }
-        catch (FileNotFoundException e) {
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
