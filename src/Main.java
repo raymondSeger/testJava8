@@ -1,19 +1,24 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class Main {
 
-    public void testMethodThatHaveException() throws IOException {
-        throw new IOException("a");
-    }
 
     public static void main(String[] args) {
 
         try {
-            new testClass().testMethodThatHaveException();
-        } catch (IOException e) {
+            BufferedReader br = new BufferedReader(new FileReader("C://test.txt"));
+            String inValue;
+            try {
+
+                while((inValue = br.readLine()) != null) {
+                    System.out.println(inValue);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
