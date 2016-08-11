@@ -5,25 +5,17 @@ import java.io.InputStream;
 
 public class Main {
 
+    public void testMethodThatHaveException() throws IOException {
+        throw new IOException("a");
+    }
+
     public static void main(String[] args) {
 
         try {
-            InputStream input  = new FileInputStream("C://test.txt");
-            int intVal;
-
-            try {
-                while((intVal = input.read()) >= 0) {
-                    char byteVal = (char) intVal;
-                    System.out.println(byteVal);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        } catch (FileNotFoundException e) {
+            new testClass().testMethodThatHaveException();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }
